@@ -49,7 +49,7 @@ public class InteriaContentTest {
         //******************************************************************//
 
         //******************************************************************//
-        //Sprawdzenie czy zostały wyświetlone właściwe informacje
+        //Checking if the news is up to date
 
         List<WebElement> listOfTitleNews = driver.findElements(By.cssSelector("li.wiadspec-li > a > span.tile-span > span"));
         System.out.println("Number of elements:" +listOfTitleNews.size());
@@ -65,6 +65,9 @@ public class InteriaContentTest {
        });
 
         if (newsTitlesGetFromWeb.equals(newsTitles)){System.out.println("TEST 4 - Tytuł OK");}
+
+        //*******************************************************************//
+        // Checking log in and log out
 
 //        listOfTitleNews.forEach(System.out::println);
 
