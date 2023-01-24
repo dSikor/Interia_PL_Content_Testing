@@ -48,11 +48,9 @@ public class InteriaContentTest {
         //******************************************************************//
     }
     @Test
-    public void testInteria(){
-
+    public void checkNewsUpToDateTest(){
         //******************************************************************//
         //Checking if the news is up to date
-
         List<WebElement> listOfTitleNews = driver.findElements(By.cssSelector("li.wiadspec-li > a > span.tile-span > span"));
         System.out.println("Number of elements:" +listOfTitleNews.size());
         System.out.println("First Title:" +newsTitles.get(8));
@@ -62,13 +60,17 @@ public class InteriaContentTest {
         }else {System.out.println("TEST 3 - Tytuł do dupy");}
 
         List<String> newsTitlesGetFromWeb=new ArrayList<String>();
-       listOfTitleNews.forEach(e->{
-           newsTitlesGetFromWeb.add(e.getText());
-       });
+        listOfTitleNews.forEach(e->{
+            newsTitlesGetFromWeb.add(e.getText());
+        });
 
         if (newsTitlesGetFromWeb.equals(newsTitles)){System.out.println("TEST 4 - Tytuł OK");}
-
         //*******************************************************************//
+    }
+    @Test
+    public void testInteria(){
+
+
         // Checking log in and log out
         driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/header/nav/ul/li[1]/a")).click();
         driver.manage().window().maximize();
