@@ -36,8 +36,7 @@ public class InteriaContentTest {
 
     }
     @Test
-    public void testInteria(){
-
+    public void showCookiesInfoTest(){
         //******************************************************************//
         //Check if cookies message showed
         if(driver.findElement(By.className("rodo-popup-agree")).isDisplayed())
@@ -47,6 +46,9 @@ public class InteriaContentTest {
             System.out.println("TEST 1 - OK ");
         }
         //******************************************************************//
+    }
+    @Test
+    public void testInteria(){
 
         //******************************************************************//
         //Checking if the news is up to date
