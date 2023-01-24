@@ -68,21 +68,13 @@ public class InteriaContentTest {
         //*******************************************************************//
     }
     @Test
-    public void testInteria(){
-
-
+    public void logInTest(){
         // Checking log in and log out
         driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/header/nav/ul/li[1]/a")).click();
         driver.manage().window().maximize();
         driver.findElement(By.id("email")).sendKeys("cyberavr@gmail.com");
         driver.findElement(By.id("password")).sendKeys("123");
         driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
-
-//        listOfTitleNews.forEach(System.out::println);
-
-
         //******************************************************************//
-
-
     }
 }
