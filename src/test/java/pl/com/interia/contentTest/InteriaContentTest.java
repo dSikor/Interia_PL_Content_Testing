@@ -35,7 +35,7 @@ public class InteriaContentTest {
     public void afterTest(){
 
     }
-    @Test
+    @Test(priority = 1)
     public void showCookiesInfoTest(){
         //******************************************************************//
         //Check if cookies message showed
@@ -47,7 +47,7 @@ public class InteriaContentTest {
         }
         //******************************************************************//
     }
-    @Test
+    @Test(priority = 2)
     public void checkNewsUpToDateTest(){
         //******************************************************************//
         //Checking if the news is up to date
@@ -67,7 +67,7 @@ public class InteriaContentTest {
         if (newsTitlesGetFromWeb.equals(newsTitles)){System.out.println("TEST 4 - Tytuł OK");}
         //*******************************************************************//
     }
-    @Test
+    @Test(priority = 3)
     public void logInTest(){
         // Checking log in and log out
         driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/header/nav/ul/li[1]/a")).click();
