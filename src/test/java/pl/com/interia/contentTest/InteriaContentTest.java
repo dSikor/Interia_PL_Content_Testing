@@ -14,6 +14,7 @@ import java.util.List;
 public class InteriaContentTest {
     WebDriver driver;
     List<String> newsTitles;
+    String fileNewsLocation = "C:\\Users\\Damiano\\IdeaProjects\\InteriaPLContentTest\\src\\test\\java\\pl\\com\\interia\\contentTest\\News.xlsx";
     @BeforeTest
     public void beforeTest(){
         System.setProperty("webdriver.chrome.driver", "C:/Selenium drivers/chromedriver.exe");
