@@ -1,5 +1,10 @@
 package pl.com.interia.contentTest;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,15 +13,36 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InteriaContentTest {
     WebDriver driver;
     List<String> newsTitles;
     String fileNewsLocation = "C:\\Users\\Damiano\\IdeaProjects\\InteriaPLContentTest\\src\\test\\java\\pl\\com\\interia\\contentTest\\News.xlsx";
     @BeforeTest
-    public void beforeTest(){
+    public void beforeTest() throws IOException {
+        FileInputStream file = new FileInputStream(new File(fileNewsLocation));
+        Workbook workbook = new XSSFWorkbook(file);
+
+        Sheet sheet = workbook.getSheetAt(0);
+
+        Map<Integer, List<String>> data = new HashMap<>();
+        int i = 0;
+        for (Row row : sheet) {
+            data.put(i, new ArrayList<String>());
+            for (Cell cell : row) {
+                data.get(i).add(cell.getRichStringCellValue().getString());
+            }
+            i++;
+        }
+
         System.setProperty("webdriver.chrome.driver", "C:/Selenium drivers/chromedriver.exe");
         driver=new ChromeDriver();
         driver.manage().window().maximize();
