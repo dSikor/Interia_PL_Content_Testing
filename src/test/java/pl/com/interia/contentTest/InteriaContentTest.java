@@ -25,26 +25,25 @@ import java.util.Map;
 public class InteriaContentTest {
     WebDriver driver;
     List<String> newsTitles;
-
+    Workbook workbook;
+    Sheet sheet;
     @BeforeTest
     public void beforeTest() throws IOException {
         try (FileInputStream file = new FileInputStream(new File("C:\\Users\\Damiano\\IdeaProjects\\InteriaPLContentTest\\src\\test\\java\\pl\\com\\interia\\contentTest\\News.xlsx")))
         {
-            Workbook workbook = new XSSFWorkbook(file);
+            workbook = new XSSFWorkbook(file);
         }
-//
-
-//
-//
-//        Map<Integer, List<String>> data = new HashMap<>();
-//        int i = 0;
-//        for (Row row : sheet) {
-//            data.put(i, new ArrayList<String>());
-//            for (Cell cell : row) {
-//                data.get(i).add(cell.getRichStringCellValue().getString());
-//            }
-//            i++;
-//        }
+        sheet = workbook.getSheetAt(0);
+        Map<Integer, List<String>> data = new HashMap<>();
+        int i = 0;
+        for (Row row : sheet) {
+            data.put(i, new ArrayList<String>());
+            for (Cell cell : row) {
+                data.get(i).add(cell.getRichStringCellValue().getString());
+                System.out.println(cell.getRichStringCellValue().getString().isEmpty());
+            }
+            i++;
+        }
 
         System.setProperty("webdriver.chrome.driver", "C:/Selenium drivers/chromedriver.exe");
         driver=new ChromeDriver();
