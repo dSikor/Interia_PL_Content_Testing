@@ -25,23 +25,26 @@ import java.util.Map;
 public class InteriaContentTest {
     WebDriver driver;
     List<String> newsTitles;
-    String fileNewsLocation = "C:\\Users\\Damiano\\IdeaProjects\\InteriaPLContentTest\\src\\test\\java\\pl\\com\\interia\\contentTest\\News.xlsx";
+
     @BeforeTest
     public void beforeTest() throws IOException {
-        FileInputStream file = new FileInputStream(new File(fileNewsLocation));
-        Workbook workbook = new XSSFWorkbook(file);
-
-        Sheet sheet = workbook.getSheetAt(0);
-
-        Map<Integer, List<String>> data = new HashMap<>();
-        int i = 0;
-        for (Row row : sheet) {
-            data.put(i, new ArrayList<String>());
-            for (Cell cell : row) {
-                data.get(i).add(cell.getRichStringCellValue().getString());
-            }
-            i++;
+        try (FileInputStream file = new FileInputStream(new File("C:\\Users\\Damiano\\IdeaProjects\\InteriaPLContentTest\\src\\test\\java\\pl\\com\\interia\\contentTest\\News.xlsx")))
+        {
+            Workbook workbook = new XSSFWorkbook(file);
         }
+//
+
+//
+//
+//        Map<Integer, List<String>> data = new HashMap<>();
+//        int i = 0;
+//        for (Row row : sheet) {
+//            data.put(i, new ArrayList<String>());
+//            for (Cell cell : row) {
+//                data.get(i).add(cell.getRichStringCellValue().getString());
+//            }
+//            i++;
+//        }
 
         System.setProperty("webdriver.chrome.driver", "C:/Selenium drivers/chromedriver.exe");
         driver=new ChromeDriver();
