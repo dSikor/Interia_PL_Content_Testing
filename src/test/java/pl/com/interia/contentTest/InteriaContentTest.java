@@ -74,7 +74,8 @@ public class InteriaContentTest {
         listOfTitleNews.forEach(e->{
             newsTitlesGetFromWeb.add(e.getText());
         });
-        if (newsTitlesGetFromWeb.containsAll(newsTitles)){
+        newsTitles.removeAll(newsTitlesGetFromWeb);
+        if (newsTitles.isEmpty()){
             System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
             System.out.println("TEST 2 - Tytuł OK");
         }
