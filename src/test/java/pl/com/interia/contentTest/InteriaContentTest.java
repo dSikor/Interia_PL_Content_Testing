@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.time.Duration;
 
 public class InteriaContentTest {
     WebDriver driver;
@@ -84,6 +85,7 @@ public class InteriaContentTest {
     @Test(priority = 3)
     public void logInTest(){
         // Checking log in and log out
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/header/nav/ul/li[1]/a")).click();
         driver.manage().window().maximize();
         driver.findElement(By.id("email")).sendKeys("cyberavr@gmail.com");
