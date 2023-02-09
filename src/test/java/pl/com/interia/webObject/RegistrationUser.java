@@ -9,13 +9,14 @@ public class RegistrationUser {
 
     public static WebDriver driver;
     public String baseURL="https://konto-pocztowe.interia.pl/#/nowe-konto";
-    public String userName="";
-    public String userSurname="";
-    public int userDayBorn=0;
-    public int userMonthBorn=0;
-    public int userYearBorn=0;
-    public String accountName="";
-    public String password="";
+    public String userName="Franek";
+    public String userSurname="Dolas";
+    public int userDayBorn=23;
+    public int userMonthBorn=11;
+    public int userYearBorn=1991;
+    public String accountName="dolek98";
+    public String password="12345#$.,";
+    public String gender="male";
 
     @BeforeClass
     public void setup(){
