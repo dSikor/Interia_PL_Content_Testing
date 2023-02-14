@@ -1,7 +1,7 @@
 package pl.com.interia.contentTest;
 
 import org.testng.annotations.Test;
-import pl.com.interia.webObject.RegistrationUser;
+import pl.com.interia.webObject.*;
 
 public class InteriaRegistrationTest extends RegistrationUser {
 
