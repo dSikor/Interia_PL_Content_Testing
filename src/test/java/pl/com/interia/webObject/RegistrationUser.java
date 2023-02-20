@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 public class RegistrationUser {
 
     public static WebDriver driver;
-    public String baseURL="https://konto-pocztowe.interia.pl/#/nowe-konto";
+    public String baseURL="https://konto-pocztowe.interia.pl/#/nowe-konto/darmowe";
     public String userName="Franek";
     public String userSurname="Dolas";
     public int userDayBorn=23;
