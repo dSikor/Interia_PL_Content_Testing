@@ -29,8 +29,12 @@ public class CreateNewAccountPage {
     WebElement repetedPassword;
     @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[2]/div[1]/div[1]/label/div/div")
     WebElement acceptAllConsent;
-
-    public void setUserName(String name)
+     public CreateNewAccountPage(WebDriver mdriver)
+     {
+      this.cnap_driver=mdriver;
+      PageFactory.initElements(mdriver,this);
+     }
+     public void setUserName(String name)
     {
         userName.sendKeys(name);
     }
