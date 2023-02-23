@@ -76,11 +76,4 @@ public class CreateNewAccountPage {
     acceptAllConsent.click();
 }
 
-
-
-
-
-
-
-
 }
