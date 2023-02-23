@@ -22,7 +22,6 @@ public class CreateNewAccountPage {
     WebElement userBirthdayYear;
     @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[5]/div[1]/input")
     WebElement accountName;
-
     @FindBy(name="password")
     WebElement userPassword;
     @FindBy(name="rePassword")
@@ -47,6 +46,15 @@ public class CreateNewAccountPage {
     {
 //        userBirthdayDay.sendKeys(day);
     }
+
+    public void setUserBirthdayMonth(String month)
+    {
+        Select dropdown = new Select(userBirthdayMonth);
+       // dropdown.selectByVisibleText(month);
+        dropdown.selectByVisibleText(month);
+    }
+
+
     public void setUserBirthdayYear(int year)
     {
 
