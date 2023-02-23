@@ -44,7 +44,7 @@ public class CreateNewAccountPage {
     }
     public void setUserBirthdayDay(int day)
     {
-//        userBirthdayDay.sendKeys(day);
+        userBirthdayDay.sendKeys(Integer.toString(day));
     }
 
     public void setUserBirthdayMonth(String month)
@@ -57,11 +57,11 @@ public class CreateNewAccountPage {
 
     public void setUserBirthdayYear(int year)
     {
-
+        userBirthdayYear.sendKeys(Integer.toString(year));
     }
     public void setAccountName(String account)
     {
-
+        accountName.sendKeys(account);
     }
     public void setUserPassword(String password)
     {
