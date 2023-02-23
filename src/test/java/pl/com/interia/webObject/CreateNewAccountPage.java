@@ -9,35 +9,25 @@ import javax.xml.xpath.XPath;
 
 public class CreateNewAccountPage {
 
-    WebDriver pdriver;
-   public CreateNewAccountPage(WebDriver mdriver)
-    {
-        pdriver=mdriver;
-        PageFactory.initElements(mdriver,this);
-    }
-
-    @FindBy(xpath="//*[@id=\"095ovr\"]")
+    WebDriver cnap_driver;
+    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[1]/input")
     WebElement userName;
-
-    @FindBy(xpath="//*[@id=\"3jmdfe\"]")
+    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[2]/input")
     WebElement userSurname;
-    @FindBy(name="birthdayDay")
+    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[1]/input")
     WebElement userBirthdayDay;
-    @FindBy(name="birthdayYear")
+    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[2]/div[1]/span")
+    WebElement userBirthdayMonth;
+    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[3]/input")
     WebElement userBirthdayYear;
-
-//    @FindBy(name="birthdayYear")
-//    WebElement userGender;
-
-    @FindBy(xpath="//*[@id=\"d08sa\"]")
+    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[5]/div[1]/input")
     WebElement accountName;
 
     @FindBy(name="password")
     WebElement userPassword;
     @FindBy(name="rePassword")
     WebElement repetedPassword;
-
-    @FindBy(xpath="//*[@id=\"mainApp\"]/div/div/div/div/div[2]/div/form/div[2]/div[1]/div[1]/label/div/div")
+    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[2]/div[1]/div[1]/label/div/div")
     WebElement acceptAllConsent;
 
     public void setUserName(String name)
