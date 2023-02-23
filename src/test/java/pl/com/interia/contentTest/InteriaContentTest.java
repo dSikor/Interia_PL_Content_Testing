@@ -1,6 +1,5 @@
 package pl.com.interia.contentTest;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -9,25 +8,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pl.com.interia.webObject.CreateNewAccountPage;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.time.Duration;
 
 public class InteriaContentTest {
+    String homePageAddress = "https://www.interia.pl/";
+    String registrationNewUserPage = "https://konto-pocztowe.interia.pl/#/nowe-konto/darmowe";
+    String driverPath="C:/Selenium drivers/chromedriver.exe";
     WebDriver driver;
+    CreateNewAccountPage objCreateNewAccountPage;
     List<String> newsTitles;
     List<String> newsTitlesGetFromWeb;
-
     Workbook workbook;
     Sheet sheet;
     @BeforeTest
@@ -46,14 +45,10 @@ public class InteriaContentTest {
         }
         newsTitles.remove(0);
 
-        System.setProperty("webdriver.chrome.driver", "C:/Selenium drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", driverPath);
         driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.interia.pl/");
-    }
-    @AfterTest
-    public void afterTest(){
-
+        driver.get(homePageAddress);
     }
     @Test(priority = 1)
     public void showCookiesInfoTest(){
@@ -65,7 +60,8 @@ public class InteriaContentTest {
             System.out.println("TEST 1 - Okno z informacją o plikach cookies");
             System.out.println("TEST 1 - OK ");
         }
-        //******************************************************************//
+//        ******************************************************************//
+
     }
     @Test(priority = 2)
     public void checkNewsUpToDateTest(){
@@ -80,7 +76,10 @@ public class InteriaContentTest {
             System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
             System.out.println("TEST 2 - Tytuł OK");
         }
-        //*******************************************************************//
+        else {
+            System.out.println("TEST 2 - Tytuł NIEZGODNE!!!");
+        }
+//        //*******************************************************************//
     }
     @Test(priority = 3)
     public void logInTest(){
@@ -92,5 +91,17 @@ public class InteriaContentTest {
         driver.findElement(By.id("password")).sendKeys("123");
         driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
         //******************************************************************//
+    }
+    @Test(priority = 4)
+    public void registrationUser(){
+        driver.get(registrationNewUserPage);
+        objCreateNewAccountPage=new CreateNewAccountPage(driver);
+        objCreateNewAccountPage.setUserName("Franek");
+        objCreateNewAccountPage.setUserSurname("Kimono");
+        objCreateNewAccountPage.setAccountName("franek.kimono333");
+        objCreateNewAccountPage.setUserPassword("dsadsadsad22312321");
+        objCreateNewAccountPage.setRepetedPassword("dsadsadsad22312321");
+        objCreateNewAccountPage.setUserBirthdayDay(22);
+        objCreateNewAccountPage.setUserBirthdayYear(1977);
     }
 }
