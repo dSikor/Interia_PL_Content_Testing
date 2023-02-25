@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pl.com.interia.webObject.CreateNewAccountPage;
@@ -54,14 +55,9 @@ public class InteriaContentTest {
     public void showCookiesInfoTest(){
         //******************************************************************//
         //Check if cookies message showed
-        if(driver.findElement(By.className("rodo-popup-agree")).isDisplayed())
-        {
-            driver.findElement(By.className("rodo-popup-agree")).click();
-            System.out.println("TEST 1 - Okno z informacją o plikach cookies");
-            System.out.println("TEST 1 - OK ");
-        }
-//        ******************************************************************//
-
+        boolean isCookieWindowsDisplayed=driver.findElement(By.className("rodo-popup-agree")).isDisplayed();
+        Assert.assertTrue(isCookieWindowsDisplayed);
+        driver.findElement(By.className("rodo-popup-agree")).click();
     }
     @Test(priority = 2)
     public void checkNewsUpToDateTest(){
