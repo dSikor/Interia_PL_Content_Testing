@@ -68,13 +68,14 @@ public class InteriaContentTest {
             newsTitlesGetFromWeb.add(e.getText());
         });
         newsTitles.removeAll(newsTitlesGetFromWeb);
-        if (newsTitles.isEmpty()){
-            System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
-            System.out.println("TEST 2 - Tytuł OK");
-        }
-        else {
-            System.out.println("TEST 2 - Tytuł NIEZGODNE!!!");
-        }
+        Assert.assertTrue(newsTitles.isEmpty());
+//        if (newsTitles.isEmpty()){
+//            System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
+//            System.out.println("TEST 2 - Tytuł OK");
+//        }
+//        else {
+//            System.out.println("TEST 2 - Tytuł NIEZGODNE!!!");
+//        }
 //        //*******************************************************************//
     }
     @Test(priority = 3)
@@ -86,6 +87,10 @@ public class InteriaContentTest {
         driver.findElement(By.id("email")).sendKeys("cyberavr@gmail.com");
         driver.findElement(By.id("password")).sendKeys("123");
         driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
+        boolean isErrorMessageDisplayed = driver.findElement(By.className("form__error")).isDisplayed();
+        Assert.assertTrue(isErrorMessageDisplayed);
+
+
         //******************************************************************//
     }
     @Test(priority = 4)
