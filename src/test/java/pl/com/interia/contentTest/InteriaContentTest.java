@@ -89,8 +89,9 @@ public class InteriaContentTest {
         driver.findElement(By.id("email")).sendKeys("sdasdas@interia.pl");
         driver.findElement(By.id("password")).sendKeys("dsasadasd");
         driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
-        boolean isErrorMessageDisplayed = driver.findElement(By.className("form__error")).isDisplayed();
-        Assert.assertTrue(isErrorMessageDisplayed);
+        WebElement errorPage = driver.findElement(By.className("form__error"));
+        String errorMessage = errorPage.getText();
+        assertEquals(errorMessage, "Błędny e-mail lub hasło");
 
 
         //******************************************************************//
