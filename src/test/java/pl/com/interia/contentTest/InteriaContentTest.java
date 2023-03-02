@@ -98,6 +98,7 @@ public class InteriaContentTest {
     }
     @Test(priority = 4)
     public void registrationUser(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(registrationNewUserPage);
         objCreateNewAccountPage=new CreateNewAccountPage(driver);
         objCreateNewAccountPage.setUserName("Franek");
