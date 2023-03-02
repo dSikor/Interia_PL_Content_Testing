@@ -79,7 +79,7 @@ public class InteriaContentTest {
 //        //*******************************************************************//
     }
     @Test(priority = 3)
-    public void logInTest(){
+    public void canNotLoginWithRandomCredential(){
         // Checking log in and log out
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/header/nav/ul/li[1]/a")).click();
