@@ -33,8 +33,8 @@ public class InteriaContentTest {
     @BeforeTest
     public void beforeTest() throws IOException {
 
-        newsTitles = new ArrayList<String>();
-        newsTitlesGetFromWeb=new ArrayList<String>();
+        newsTitles = new ArrayList<>();
+        newsTitlesGetFromWeb=new ArrayList<>();
 
         try (FileInputStream file = new FileInputStream(new File("C:\\Users\\Damiano\\IdeaProjects\\InteriaPLContentTest\\src\\test\\java\\pl\\com\\interia\\contentTest\\News.xlsx")))
         {
