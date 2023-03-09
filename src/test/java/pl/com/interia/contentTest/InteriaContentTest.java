@@ -99,6 +99,18 @@ public class InteriaContentTest {
         //******************************************************************//
     }
     @Test(priority = 4)
+    public void canLoginWithCorrectCredential(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.get(loginUserPage);
+        driver.manage().window().maximize();
+        driver.findElement(By.id("email")).sendKeys("adam.jan44@interia.pl");
+        driver.findElement(By.id("password")).sendKeys("Janowo45#@1m");
+        driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
+        String actualUrl="https://poczta.interia.pl/logowanie/";
+        String expectedUrl= driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
+    @Test(priority = 5)
     public void registrationUser(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(registrationNewUserPage);
