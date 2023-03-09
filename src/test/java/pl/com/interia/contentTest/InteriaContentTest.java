@@ -24,6 +24,7 @@ import java.time.Duration;
 
 public class InteriaContentTest {
     String homePageAddress = "https://www.interia.pl/";
+    String loginUserPage = "https://poczta.interia.pl/logowanie/";
     String registrationNewUserPage = "https://konto-pocztowe.interia.pl/#/nowe-konto/darmowe";
     String driverPath="C:/Selenium drivers/chromedriver.exe";
     WebDriver driver;
