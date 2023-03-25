@@ -1,5 +1,6 @@
 package pl.com.interia.webObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,21 +10,25 @@ import org.openqa.selenium.support.ui.Select;
 public class CreateNewAccountPage {
 
     WebDriver cnap_driver;
-    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[1]/input")
+
+    @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[2]")
     WebElement userName;
-    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[2]/input")
+    @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[3]")
     WebElement userSurname;
-    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[1]/input")
+    @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[4]")
     WebElement userBirthdayDay;
-    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[2]/div[1]/span")
+//    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[2]/div[1]/span")
+//    WebElement userBirthdayMonth;
+    @FindBy(xpath="//div[@class=\"account-input-container account-select\"]//following::div[@class=\"icon-arrow-right-full\"][1]")
     WebElement userBirthdayMonth;
-    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[3]/input")
+    @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[6]")
     WebElement userBirthdayYear;
-    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[5]/div[1]/input")
+    @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[8]")
     WebElement accountName;
-    @FindBy(name="password")
+//    @FindBy(name="password")
+    @FindBy(id="password")
     WebElement userPassword;
-    @FindBy(name="rePassword")
+    @FindBy(id="rePassword")
     WebElement repetedPassword;
     @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[2]/div[1]/div[1]/label/div/div")
     WebElement acceptAllConsent;
