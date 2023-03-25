@@ -53,9 +53,9 @@ public class CreateNewAccountPage {
 
     public void setUserBirthdayMonth(String month)
     {
-        Select dropdown = new Select(userBirthdayMonth);
-       // dropdown.selectByVisibleText(month);
-        dropdown.selectByVisibleText(month);
+        userBirthdayMonth.click();
+        WebElement dropdown =cnap_driver.findElement(By.xpath("//div[@class=\"account-input-container account-select account-input-container--active\"]//ul[@class=\"account-select__options visible\"]//span[text()='"+month+"']"));
+        dropdown.click();
     }
 
 
