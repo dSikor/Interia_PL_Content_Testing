@@ -59,7 +59,12 @@ public class CreateNewAccountPage {
         WebElement dropdown =cnap_driver.findElement(By.xpath("//div[@class=\"account-input-container account-select account-input-container--active\"]//ul[@class=\"account-select__options visible\"]//span[text()='"+month+"']"));
         dropdown.click();
     }
-
+    public void setUserGender(String gender)
+    {
+        userGender.click();
+        WebElement dropdown =cnap_driver.findElement(By.xpath("//div[@class=\"account-input-container account-select account-input-container--active\"]//ul[@class=\"account-select__options visible\"]//span[text()='"+gender+"']"));
+        dropdown.click();
+    }
 
     public void setUserBirthdayYear(int year)
     {
