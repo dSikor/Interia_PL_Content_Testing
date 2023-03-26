@@ -17,8 +17,6 @@ public class CreateNewAccountPage {
     WebElement userSurname;
     @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[4]")
     WebElement userBirthdayDay;
-//    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[1]/div[3]/div[2]/div[1]/span")
-//    WebElement userBirthdayMonth;
     @FindBy(xpath="//div[@class=\"account-input-container account-select\"]//following::div[@class=\"icon-arrow-right-full\"][1]")
     WebElement userBirthdayMonth;
     @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[6]")
