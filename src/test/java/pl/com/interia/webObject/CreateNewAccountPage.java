@@ -30,8 +30,10 @@ public class CreateNewAccountPage {
     WebElement userPassword;
     @FindBy(id="rePassword")
     WebElement repetedPassword;
-    @FindBy(xpath="/html/body/div[1]/div/div/div/div/div[2]/div/form/div[2]/div[1]/div[1]/label/div/div")
+    @FindBy(css="div[class=\"law-information__description law-information__description--highlighted\"]")
     WebElement acceptAllConsent;
+    @FindBy(xpath = "//button[@class=\"btn\"]")
+    WebElement createAccountButton;
      public CreateNewAccountPage(WebDriver mdriver)
      {
       this.cnap_driver=mdriver;
