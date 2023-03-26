@@ -116,16 +116,21 @@ public class InteriaContentTest {
         Assert.assertEquals(expectedUrl,actualUrl);
     }
     @Test(priority = 5)
-    public void registrationUser(){
+    public void registrationUser() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(registrationNewUserPage);
         objCreateNewAccountPage=new CreateNewAccountPage(driver);
         objCreateNewAccountPage.setUserName("Franek");
         objCreateNewAccountPage.setUserSurname("Kimono");
-        objCreateNewAccountPage.setAccountName("franek.kimono333");
+        objCreateNewAccountPage.setUserBirthdayDay(22);
+        objCreateNewAccountPage.setUserBirthdayMonth("Grudzień");
+        objCreateNewAccountPage.setUserBirthdayYear(1977);
+        objCreateNewAccountPage.setAccountName("franek.kimon8889");
         objCreateNewAccountPage.setUserPassword("dsadsadsad22312321");
         objCreateNewAccountPage.setRepetedPassword("dsadsadsad22312321");
-        objCreateNewAccountPage.setUserBirthdayDay(22);
-        objCreateNewAccountPage.setUserBirthdayYear(1977);
+        objCreateNewAccountPage.setUserGender("Mężczyzna");
+        objCreateNewAccountPage.selectAllConsent();
+        objCreateNewAccountPage.createAccount();
+
     }
 }
