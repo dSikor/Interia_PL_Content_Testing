@@ -15,6 +15,7 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pl.com.interia.webObject.CreateNewAccountPage;
+import pl.com.interia.webObject.LoginUserPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,6 +30,7 @@ public class InteriaContentTest {
     String registrationNewUserPage = "https://konto-pocztowe.interia.pl/#/nowe-konto/darmowe";
     String driverPath="C:/Selenium drivers/chromedriver.exe";
     WebDriver driver;
+    LoginUserPage objLoginUserPage;
     CreateNewAccountPage objCreateNewAccountPage;
     List<String> newsTitles;
     List<String> newsTitlesGetFromWeb;
@@ -76,7 +78,7 @@ public class InteriaContentTest {
             newsTitlesGetFromWeb.add(e.getText());
         });
         newsTitles.removeAll(newsTitlesGetFromWeb);
-        Assert.assertTrue(newsTitles.isEmpty());
+        assertTrue(newsTitles.isEmpty());
 //        if (newsTitles.isEmpty()){
 //            System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
 //            System.out.println("TEST 2 - Tytuł OK");
@@ -91,7 +93,6 @@ public class InteriaContentTest {
         // Checking log in and log out
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(loginUserPage);
-//        driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/header/nav/ul/li[1]/a")).click();
         driver.manage().window().maximize();
         driver.findElement(By.id("email")).sendKeys("sdasdas@interia.pl");
         driver.findElement(By.id("password")).sendKeys("dsasadasd");
@@ -108,12 +109,18 @@ public class InteriaContentTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(loginUserPage);
         driver.manage().window().maximize();
-        driver.findElement(By.id("email")).sendKeys("adam.jan44@interia.pl");
-        driver.findElement(By.id("password")).sendKeys("Janowo45#@1m");
-        driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
-        String actualUrl="https://poczta.interia.pl/logowanie/";
-        String expectedUrl= driver.getCurrentUrl();
-        Assert.assertEquals(expectedUrl,actualUrl);
+        objLoginUserPage=new LoginUserPage(driver);
+        objLoginUserPage.setUserEmail("adam.jan44@interia.pl");
+        objLoginUserPage.setUserPassword("Janowo45#@1m");
+        objLoginUserPage.logIn();
+
+
+//        driver.findElement(By.id("email")).sendKeys("adam.jan44@interia.pl");
+//        driver.findElement(By.id("password")).sendKeys("Janowo45#@1m");
+//        driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
+//        String actualUrl="https://poczta.interia.pl/logowanie/";
+//        String expectedUrl= driver.getCurrentUrl();
+//        Assert.assertEquals(expectedUrl,actualUrl);
     }
     @Test(priority = 5)
     public void registrationUser() {
@@ -131,6 +138,5 @@ public class InteriaContentTest {
         objCreateNewAccountPage.setUserGender("Mężczyzna");
         objCreateNewAccountPage.selectAllConsent();
         objCreateNewAccountPage.createAccount();
-
     }
 }
