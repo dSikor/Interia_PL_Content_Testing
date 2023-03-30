@@ -124,6 +124,10 @@ public class InteriaContentTest {
         objLoginUserPage.setUserEmail("adam.jan44@interia.pl");
         objLoginUserPage.setUserPassword("Janowo45#@1m");
         objLoginUserPage.logIn();
+        String correctPartAddress="https://poczta.interia.pl/next";
+        String expectedUrl= driver.getCurrentUrl();
+        boolean isUrlConsist=expectedUrl.contains(correctPartAddress);
+        Assert.assertTrue(isUrlConsist);
 
 
 //        driver.findElement(By.id("email")).sendKeys("adam.jan44@interia.pl");
