@@ -94,14 +94,13 @@ public class InteriaContentTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(loginUserPage);
         driver.manage().window().maximize();
-        driver.findElement(By.id("email")).sendKeys("sdasdas@interia.pl");
-        driver.findElement(By.id("password")).sendKeys("dsasadasd");
-        driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
+        objLoginUserPage=new LoginUserPage(driver);
+        objLoginUserPage.setUserEmail("sdasdas@interia.pl");
+        objLoginUserPage.setUserPassword("dsasadasd");
+        objLoginUserPage.logIn();
         WebElement errorPage = driver.findElement(By.className("form__error"));
         String errorMessage = errorPage.getText();
         assertEquals(errorMessage, "Błędny e-mail lub hasło");
-
-
         //******************************************************************//
     }
     @Test(priority = 4)
