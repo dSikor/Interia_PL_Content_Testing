@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.Duration;
+import java.util.Set;
+import java.util.Iterator;
 
 public class InteriaContentTest {
     String homePageAddress = "https://www.interia.pl/";
@@ -36,6 +38,9 @@ public class InteriaContentTest {
     List<String> newsTitlesGetFromWeb;
     Workbook workbook;
     Sheet sheet;
+
+    Set w;
+
     @BeforeTest
     public void beforeTest() throws IOException {
 
@@ -101,6 +106,13 @@ public class InteriaContentTest {
         WebElement errorPage = driver.findElement(By.className("form__error"));
         String errorMessage = errorPage.getText();
         assertEquals(errorMessage, "Błędny e-mail lub hasło");
+        w = driver.getWindowHandles();
+        Iterator t = w.iterator();
+        String h = (String) t.next();
+        String p = (String) t.next();
+        driver.switchTo().window(p);
+        driver.close();
+
         //******************************************************************//
     }
     @Test(priority = 4)
