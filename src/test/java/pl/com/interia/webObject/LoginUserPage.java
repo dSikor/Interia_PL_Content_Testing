@@ -37,7 +37,8 @@ public class LoginUserPage {
 
     public void logIn()
     {
-        Actions actions = new Actions(cnap_driver);
-        actions.moveToElement(logInButton).click().perform();
+        logInButton.click();
+//        Actions actions = new Actions(cnap_driver);
+//        actions.moveToElement(logInButton).click().perform();
     }
 }
