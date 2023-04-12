@@ -22,8 +22,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.Duration;
-import java.util.Set;
-import java.util.Iterator;
 
 public class InteriaContentTest {
     String homePageAddress = "https://www.interia.pl/";
