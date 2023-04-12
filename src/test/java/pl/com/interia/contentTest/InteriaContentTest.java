@@ -32,6 +32,7 @@ public class InteriaContentTest {
     LoginUserPage objLoginUserPageFalse;
     LoginUserPage objLoginUserPageCorrect;
     CreateNewAccountPage objCreateNewAccountPage;
+    ChromeOptions options;
     List<String> newsTitles;
     List<String> newsTitlesGetFromWeb;
     Workbook workbook;
