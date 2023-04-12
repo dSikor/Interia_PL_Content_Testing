@@ -29,7 +29,8 @@ public class InteriaContentTest {
     String registrationNewUserPage = "https://konto-pocztowe.interia.pl/#/nowe-konto/darmowe";
     String driverPath="C:/Selenium drivers/chromedriver.exe";
     WebDriver driver;
-    LoginUserPage objLoginUserPage;
+    LoginUserPage objLoginUserPageFalse;
+    LoginUserPage objLoginUserPageCorrect;
     CreateNewAccountPage objCreateNewAccountPage;
     List<String> newsTitles;
     List<String> newsTitlesGetFromWeb;
