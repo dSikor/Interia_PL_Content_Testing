@@ -116,16 +116,21 @@ public class InteriaContentTest {
     }
     @Test(priority = 4)
     public void canLoginWithCorrectCredential(){
+        driver.quit();
+        options.addArguments("--remote-allow-origins=*");
+        driver=new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(loginUserPage);
+        driver.findElement(By.className("rodo-popup-agree")).click();
         driver.manage().window().maximize();
-        objLoginUserPage=new LoginUserPage(driver);
-        objLoginUserPage.setUserEmail("adam.jan44@interia.pl");
-        objLoginUserPage.setUserPassword("Janowo45#@1m");
-        objLoginUserPage.logIn();
+        objLoginUserPageCorrect =new LoginUserPage(driver);
+        objLoginUserPageCorrect.setUserEmail("adam.jan44@interia.pl");
+        objLoginUserPageCorrect.setUserPassword("Janowo45#@1m");
+        objLoginUserPageCorrect.logIn();
         String correctPartAddress="https://poczta.interia.pl/next";
         String expectedUrl= driver.getCurrentUrl();
         boolean isUrlConsist=expectedUrl.contains(correctPartAddress);
+        driver.quit();
         Assert.assertTrue(isUrlConsist);
     }
     @Test(priority = 5)
