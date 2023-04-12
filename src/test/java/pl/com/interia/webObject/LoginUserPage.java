@@ -2,7 +2,6 @@ package pl.com.interia.webObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -38,7 +37,5 @@ public class LoginUserPage {
     public void logIn()
     {
         logInButton.click();
-//        Actions actions = new Actions(cnap_driver);
-//        actions.moveToElement(logInButton).click().perform();
     }
 }
