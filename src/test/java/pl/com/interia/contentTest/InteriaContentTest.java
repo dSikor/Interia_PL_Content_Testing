@@ -127,14 +127,6 @@ public class InteriaContentTest {
         String expectedUrl= driver.getCurrentUrl();
         boolean isUrlConsist=expectedUrl.contains(correctPartAddress);
         Assert.assertTrue(isUrlConsist);
-
-
-//        driver.findElement(By.id("email")).sendKeys("adam.jan44@interia.pl");
-//        driver.findElement(By.id("password")).sendKeys("Janowo45#@1m");
-//        driver.findElement(By.xpath("//*[@id=\"sitebar\"]/form/button")).click();
-//        String actualUrl="https://poczta.interia.pl/logowanie/";
-//        String expectedUrl= driver.getCurrentUrl();
-//        Assert.assertEquals(expectedUrl,actualUrl);
     }
     @Test(priority = 5)
     public void registrationUser() {
