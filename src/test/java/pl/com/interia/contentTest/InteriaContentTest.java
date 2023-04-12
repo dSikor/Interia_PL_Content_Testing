@@ -37,8 +37,6 @@ public class InteriaContentTest {
     Workbook workbook;
     Sheet sheet;
 
-    Set w;
-
     @BeforeTest
     public void beforeTest() throws IOException {
 
