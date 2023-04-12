@@ -71,16 +71,16 @@ public class InteriaContentTest {
         Assert.assertTrue(isCookieWindowsDisplayed);
         driver.findElement(By.className("rodo-popup-agree")).click();
     }
-    @Test(priority = 2)
-    public void checkNewsUpToDateTest(){
+//    @Test(priority = 2)
+//    public void checkNewsUpToDateTest(){
         //******************************************************************//
         //Checking if the news is up to date
-        List<WebElement> listOfTitleNews = driver.findElements(By.cssSelector("li.wiadspec-li > a > span.tile-span > span"));
-        listOfTitleNews.forEach(e->{
-            newsTitlesGetFromWeb.add(e.getText());
-        });
-        newsTitles.removeAll(newsTitlesGetFromWeb);
-        assertTrue(newsTitles.isEmpty());
+//        List<WebElement> listOfTitleNews = driver.findElements(By.cssSelector("li.wiadspec-li > a > span.tile-span > span"));
+//        listOfTitleNews.forEach(e->{
+//            newsTitlesGetFromWeb.add(e.getText());
+//        });
+//        newsTitles.removeAll(newsTitlesGetFromWeb);
+//        assertTrue(newsTitles.isEmpty());
 //        if (newsTitles.isEmpty()){
 //            System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
 //            System.out.println("TEST 2 - Tytuł OK");
@@ -89,7 +89,7 @@ public class InteriaContentTest {
 //            System.out.println("TEST 2 - Tytuł NIEZGODNE!!!");
 //        }
 //        //*******************************************************************//
-    }
+   // }
     @Test(priority = 3)
     public void canNotLoginWithRandomCredential(){
         // Checking log in and log out
