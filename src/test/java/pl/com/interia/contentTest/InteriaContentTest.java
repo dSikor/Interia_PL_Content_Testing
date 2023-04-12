@@ -138,8 +138,11 @@ public class InteriaContentTest {
     }
     @Test(priority = 5)
     public void registrationUser() {
+        options.addArguments("--remote-allow-origins=*");
+        driver=new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(registrationNewUserPage);
+        driver.findElement(By.className("rodo-popup-agree")).click();
         objCreateNewAccountPage=new CreateNewAccountPage(driver);
         objCreateNewAccountPage.setUserName("Franek");
         objCreateNewAccountPage.setUserSurname("Kimono");
