@@ -56,7 +56,7 @@ public class InteriaContentTest {
 
         System.setProperty("webdriver.chrome.driver", driverPath);
 
-        ChromeOptions options = new ChromeOptions();
+        options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
         driver=new ChromeDriver(options);
