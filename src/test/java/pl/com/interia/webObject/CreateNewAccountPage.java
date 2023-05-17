@@ -1,12 +1,14 @@
 package pl.com.interia.webObject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class CreateNewAccountPage {
 
@@ -26,7 +28,6 @@ public class CreateNewAccountPage {
     WebElement userGender;
     @FindBy(xpath="//div[@class=\"register-form__inputs\"]//following::input[8]")
     WebElement accountName;
-//    @FindBy(name="password")
     @FindBy(id="password")
     WebElement userPassword;
     @FindBy(id="rePassword")
@@ -40,10 +41,7 @@ public class CreateNewAccountPage {
       this.cnap_driver=mdriver;
       PageFactory.initElements(mdriver,this);
      }
-     public void setUserName(String name)
-    {
-        userName.sendKeys(name);
-    }
+     public void setUserName(String name) {userName.sendKeys(name);}
 
     public void setUserSurname(String surname)
     {
@@ -74,6 +72,7 @@ public class CreateNewAccountPage {
     public void setAccountName(String account)
     {
         accountName.sendKeys(account);
+        accountName.sendKeys(Keys.ENTER);
     }
     public void setUserPassword(String password)
     {
@@ -93,5 +92,4 @@ public class CreateNewAccountPage {
         Actions actions = new Actions(cnap_driver);
         actions.moveToElement(createAccountButton).click().perform();
     }
-
 }

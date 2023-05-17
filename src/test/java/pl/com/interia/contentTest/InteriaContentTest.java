@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pl.com.interia.webObject.CreateNewAccountPage;
@@ -68,28 +70,28 @@ public class InteriaContentTest {
         //******************************************************************//
         //Check if cookies message showed
         boolean isCookieWindowsDisplayed=driver.findElement(By.className("rodo-popup-agree")).isDisplayed();
-        Assert.assertTrue(isCookieWindowsDisplayed);
+        assertTrue(isCookieWindowsDisplayed);
         driver.findElement(By.className("rodo-popup-agree")).click();
     }
-//    @Test(priority = 2)
-//    public void checkNewsUpToDateTest(){
+    @Test(priority = 2)
+    public void checkNewsUpToDateTest(){
         //******************************************************************//
-        //Checking if the news is up to date
-//        List<WebElement> listOfTitleNews = driver.findElements(By.cssSelector("li.wiadspec-li > a > span.tile-span > span"));
-//        listOfTitleNews.forEach(e->{
-//            newsTitlesGetFromWeb.add(e.getText());
-//        });
-//        newsTitles.removeAll(newsTitlesGetFromWeb);
-//        assertTrue(newsTitles.isEmpty());
-//        if (newsTitles.isEmpty()){
-//            System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
-//            System.out.println("TEST 2 - Tytuł OK");
-//        }
-//        else {
-//            System.out.println("TEST 2 - Tytuł NIEZGODNE!!!");
-//        }
-//        //*******************************************************************//
-   // }
+     //   Checking if the news is up to date
+        List<WebElement> listOfTitleNews = driver.findElements(By.cssSelector("li.wiadspec-li > a > span.tile-span > span"));
+        listOfTitleNews.forEach(e->{
+            newsTitlesGetFromWeb.add(e.getText());
+        });
+        newsTitles.removeAll(newsTitlesGetFromWeb);
+        assertTrue(newsTitles.isEmpty());
+        if (newsTitles.isEmpty()){
+            System.out.println("TEST 2 - Newsy zgodnie z plikem exel");
+            System.out.println("TEST 2 - Tytuł OK");
+        }
+        else {
+            System.out.println("TEST 2 - Tytuł NIEZGODNE!!!");
+        }
+        //*******************************************************************//
+    }
     @Test(priority = 3)
     public void canNotLoginWithRandomCredential(){
         // Checking log in and log out
@@ -123,13 +125,13 @@ public class InteriaContentTest {
         String expectedUrl= driver.getCurrentUrl();
         boolean isUrlConsist=expectedUrl.contains(correctPartAddress);
         driver.quit();
-        Assert.assertTrue(isUrlConsist);
+        assertTrue(isUrlConsist);
     }
     @Test(priority = 5)
     public void registrationUser() {
         options.addArguments("--remote-allow-origins=*");
         driver=new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+       // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(registrationNewUserPage);
         driver.findElement(By.className("rodo-popup-agree")).click();
         objCreateNewAccountPage=new CreateNewAccountPage(driver);
@@ -138,10 +140,10 @@ public class InteriaContentTest {
         objCreateNewAccountPage.setUserBirthdayDay(22);
         objCreateNewAccountPage.setUserBirthdayMonth("Grudzień");
         objCreateNewAccountPage.setUserBirthdayYear(1977);
-        objCreateNewAccountPage.setAccountName("franek.kimon8889");
         objCreateNewAccountPage.setUserPassword("dsadsadsad22312321");
         objCreateNewAccountPage.setRepetedPassword("dsadsadsad22312321");
         objCreateNewAccountPage.setUserGender("Mężczyzna");
+        objCreateNewAccountPage.setAccountName("franek.kmon88999");
         objCreateNewAccountPage.selectAllConsent();
         objCreateNewAccountPage.createAccount();
     }
